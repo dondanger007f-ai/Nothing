@@ -1,0 +1,6 @@
+{
+  "name": "Sindhuja's Birthday Journey",
+  "description": "A premium, cinematic interactive birthday experience for Sindhuja. Calm, respectful, and thoughtfully designed with soft gradients and glassmorphic UI.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": []
+}

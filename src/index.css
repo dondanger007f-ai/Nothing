@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base: #08080a;
+  --color-lavender: #b19cd9;
+  --color-soft-pink: #ffb7c5;
+  --color-deep-blue: #1e3a8a;
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-base text-white/90 overflow-x-hidden antialiased selection:bg-white/10;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    @apply backdrop-blur-[60px] border border-white/[0.08] shadow-[0_20px_80px_rgba(0,0,0,0.5)];
+  }
+  
+  .glass-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    @apply backdrop-blur-[80px] border border-white/[0.12] rounded-[3rem] p-10 shadow-[0_40px_100px_rgba(0,0,0,0.6)];
+  }
+
+  .text-glow {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.2);
+  }
+
+  .text-premium {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-white via-white/100 to-white/60;
+  }
+
+  .glass-premium {
+    background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.01) 100%);
+    @apply backdrop-blur-[120px] border border-white/[0.15] shadow-[0_50px_120px_rgba(0,0,0,0.7)];
+  }
+
+  .aura-pink {
+    background: radial-gradient(circle, rgba(255, 183, 197, 0.15) 0%, transparent 70%);
+  }
+
+  .aura-lavender {
+    background: radial-gradient(circle, rgba(177, 156, 217, 0.1) 0%, transparent 70%);
+  }
+}
+
+@keyframes liquid {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, -5%) scale(1.1); }
+  66% { transform: translate(-5%, 5%) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.animate-liquid {
+  animation: liquid 20s ease-in-out infinite alternate;
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+  animation: ripple 0.8s linear;
+}
+
+.tilt-active {
+  transition: transform 0.1s ease-out;
+}
+
